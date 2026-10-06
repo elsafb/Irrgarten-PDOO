@@ -1,0 +1,13 @@
+# NetBeans
+nbproject/private/
+build/
+dist/
+
+# VS Code
+.vscode/
+
+# Compilados de Java y Ruby
+*.class
+.bundle/
+vendor/bundle/
+
