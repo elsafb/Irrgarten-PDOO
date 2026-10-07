@@ -14,23 +14,10 @@ public class TestP1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hola Mundo");
+        System.out.println("=== PRUEBA ENUMERADOS ===");
         
-        Weapon w = new Weapon(1.0f, 2);
+        System.out.println("=== PRUEBA CLASES: WEAPON, SHIELD Y GAMESTATE ===");
         
-        for (int i = 0; i < 3; i++){
-            System.out.println(w.toString());
-            System.out.println(w.attack());
-        }
-       
-        int test = 100;
-        int nTrue = 0;
-        for (int i = 0; i < test; i++){
-            if (Dice.resurrectPlayer()){
-                nTrue++;
-            }
-        }
-        
-        System.out.println("Nº de Trues: "+ ((float) nTrue / test) * 100 + "%");
+        System.out.println("=== PRUEBA CLASE DICE (100 TERACIONES) ===");
     }  
 }
