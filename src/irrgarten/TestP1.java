@@ -16,8 +16,83 @@ public class TestP1 {
     public static void main(String[] args) {
         System.out.println("=== PRUEBA ENUMERADOS ===");
         
+        Directions dir = Directions.DOWN;
+        Orientation ori = Orientation.VERTICAL;
+        GameCharacter character = GameCharacter.MONSTER;
+        
+        System.out.println("Dirección: "+dir);
+        System.out.println("Orientatción: "+ori);
+        System.out.println("Personaje: "+character);
+        
         System.out.println("=== PRUEBA CLASES: WEAPON, SHIELD Y GAMESTATE ===");
         
+        Weapon w = new Weapon(2.5f, 3);
+        Shield s = new Shield(1.5f, 2);
+        
+        System.out.println("Arma inicial: " + w.toString());
+        System.out.println("Escudo inicial: " + s.toString());
+        System.out.println("Ataque del arma: " + w.attack());
+        System.out.println("Defensa del escudo: " + s.protect());
+        System.out.println("Arma tras uso: " + w.toString());
+        System.out.println("Escudo tras uso: " + s.toString());
+        System.out.println("Descarte de arma?: " + w.discard());
+        System.out.println("Descarte de escudo?: " + s.discard());
+        
+        GameState state = new GameState(
+        "Laberinto de hielo",
+        "Siete jugadores",
+        "Vampiros y Minotauros",
+        0,
+        false,
+        "El jugador 1 ha matado al minotauro");
+        
+        System.out.println("\nEstado del juego:");
+        System.out.println("Laberinto: " + state.getLabyrinth());
+        System.out.println("Jugadores: " + state.getPlayers());
+        System.out.println("Monstruos: " + state.getMonsters());
+        System.out.println("Turno: " + state.getCurrentPlayer());
+        System.out.println("Ganador: " + state.getWinner());
+        System.out.println("Log: " + state.getLog());
+        
         System.out.println("=== PRUEBA CLASE DICE (100 TERACIONES) ===");
+        
+        int iteraciones = 100;
+        int resurrectTrues = 0;
+        int discardMaxUsesTrues = 0;
+        int discardZeroUsesTrues = 0;
+        
+        for(int i = 0; i < iteraciones; i++){
+            
+            if(Dice.resurrectPlayer()){
+                resurrectTrues++; //del 30%
+            }
+            
+            //Descartar elemento con usos maximos (se espera 0)
+            if(Dice.discardElement(5)){
+                discardMaxUsesTrues++;
+            }
+            
+            //Descartar elemento con usos a 0 (se espera 100)
+            if(Dice.discardElement(0)){
+                discardZeroUsesTrues++;
+            }
+            
+            Dice.randomPos(10);
+            Dice.whoStarts(4);
+            Dice.randomIntelligence();
+            Dice.randomStrength();
+            Dice.weaponsReward();
+            Dice.shieldsReward();
+            Dice.healthReward();
+            Dice.weaponPower();
+            Dice.shieldPower();
+            Dice.usesLeft();
+            Dice.intensity(5.0f);
+        }
+        
+        System.out.println("Porcentaje de resurrección (30% aprox): " + ((float)resurrectTrues / iteraciones) * 100 + "%");
+        System.out.println("Descartar con usos máximos (0% aprox): " + ((float)discardMaxUsesTrues / iteraciones) * 100 + "%");
+        System.out.println("Descartar con 0 usos (100% aprox): " + ((float)discardZeroUsesTrues / iteraciones) * 100 + "%");
+
     }  
 }
