@@ -77,22 +77,22 @@ public class TestP1 {
                 discardZeroUsesTrues++;
             }
             
-            Dice.randomPos(10);
-            Dice.whoStarts(4);
-            Dice.randomIntelligence();
-            Dice.randomStrength();
-            Dice.weaponsReward();
-            Dice.shieldsReward();
-            Dice.healthReward();
-            Dice.weaponPower();
-            Dice.shieldPower();
-            Dice.usesLeft();
-            Dice.intensity(5.0f);
         }
         
         System.out.println("Porcentaje de resurrección (30% aprox): " + ((float)resurrectTrues / iteraciones) * 100 + "%");
         System.out.println("Descartar con usos máximos (0% aprox): " + ((float)discardMaxUsesTrues / iteraciones) * 100 + "%");
         System.out.println("Descartar con 0 usos (100% aprox): " + ((float)discardZeroUsesTrues / iteraciones) * 100 + "%");
 
+        System.out.println("Posición aleatoria (0 a 9): " + Dice.randomPos(10));
+        System.out.println("Jugador (4 jugadores, de 0 a 3): " + Dice.whoStarts(4));
+        System.out.println("Inteligencia aleatoria (0.0 a 9.99): " + Dice.randomIntelligence());
+        System.out.println("Fuerza aleatoria (0.0 a 9.99): " + Dice.randomStrength());
+        System.out.println("Armas ganadas (0 a 2): " + Dice.weaponsReward());
+        System.out.println("Escudos ganados (0 a 3): " + Dice.shieldsReward());
+        System.out.println("Salud ganada (0 a 5): " + Dice.healthReward());
+        System.out.println("Poder de arma (0.0 a 2.99): " + Dice.weaponPower());
+        System.out.println("Poder de escudo (0.0 a 1.99): " + Dice.shieldPower());
+        System.out.println("Usos iniciales (0 a 5): " + Dice.usesLeft());
+        System.out.println("Intensidad aplicada (competencia 5.0): " + Dice.intensity(5.0f));
     }  
 }
