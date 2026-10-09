@@ -15,7 +15,7 @@ public class Weapon {
     /**
      * Constructor de la clase Weapon
      * @param aPower Potencia de daño del arma
-     * @param someUses Numero inicial de usso disponibles del arma
+     * @param someUses Numero inicial de usos disponibles del arma
      */
     public Weapon (float aPower, int someUses){
         power = aPower;

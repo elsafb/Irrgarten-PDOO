@@ -1,9 +1,57 @@
 #encoding:utf-8
 require_relative 'dice'
+require_relative 'directions'
+require_relative 'orientation'
+require_relative 'game_character'
+require_relative 'weapon'
+require_relative 'shield'
+require_relative 'game_state'
 
 module Irrgarten
   class TestP1
     def self.main
+
+      puts "=== PRUEBA ENUMERADOS ==="
+
+      dir = Directions::DOWN
+      ori = Orientation::HORIZONTAL
+      character = GameCharacter::MONSTER
+
+      puts "Dirección: #{dir}"
+      puts "Orientación: #{ori}"
+      puts "Personaje: #{character}"
+
+      puts "=== PRUEBA CLASES: WEAPON, SHIELD Y GAMESTATE ==="
+
+      w = Weapon.new(2.5, 3)
+      s = Shield.new(1.5, 2)
+
+      puts "Arma: #{w.to_s}"
+      puts "Escudo: #{s.to_s}"
+      puts "Ataque del arma: #{w.attack}"
+      puts "Defensa del escudo: #{s.protect}"
+      puts "Arma tras ataque: #{w.to_s}"
+      puts "Escudo tras defensa: #{s.to_s}"
+      puts "Descarte de arma? #{w.discard}"
+      puts "Descarte de escudo? #{s.discard}"
+
+      state = GameState.new(
+        "Laberinto de hielo",
+        "Siete jugadores",
+        "Vampiros y Minotauros",
+        0,
+        false, 
+        "El jugador 1 ha matado al minotauro"
+      )
+
+      puts "\nEstado del juego:"
+      puts "Laberinto: #{state.labyrinth}"
+      puts "Jugadores: #{state.players}"
+      puts "Monstruos: #{state.monsters}"
+      puts "Turno: #{state.current_player}"
+      puts "Ganador: #{state.winner}"
+      puts "Log: #{state.log}"
+
       puts "=== PRUEBA CLASE DICE (100 ITERACIONES) ==="
       
       iteraciones = 100
